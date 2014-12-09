@@ -28,13 +28,21 @@
   </formats>
   <includeBaseDirectory>false</includeBaseDirectory>
   <dependencySets>
+    <!-- jar -->
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>${project.groupId}:answers-services:jar</include>
+      </includes>
+    </dependencySet>
+
     <!-- war -->
     <dependencySet>
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
         <include>${project.groupId}:answers-portlets:war</include>
       </includes>
-      <outputFileNameMapping>answers.war</outputFileNameMapping>
+      <outputFileNameMapping>faq.war</outputFileNameMapping>
     </dependencySet>
   </dependencySets>
 </assembly>
