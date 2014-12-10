@@ -45,6 +45,7 @@
   <modules>
     <module>service</module>
     <module>injection</module>
+    <module>integ-answers</module>
     <module>webapp</module>
     <module>packaging</module>
   </modules>
