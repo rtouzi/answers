@@ -38,35 +38,6 @@
       <type>org.exoplatform.services.user.UserStateService</type>
    </component>
   
-  <!-- Forum Injector Definition-->
-  <component>
-    <type>org.exoplatform.forum.extras.injection.forum.ProfileInjector</type>
-  </component>
-
-  <component>
-    <type>org.exoplatform.forum.extras.injection.forum.CategoryInjector</type>
-  </component>
-  
-    <component>
-    <type>org.exoplatform.forum.extras.injection.forum.ForumInjector</type>
-  </component>
-
-  <component>
-    <type>org.exoplatform.forum.extras.injection.forum.TopicInjector</type>
-  </component>
-  
-  <component>
-    <type>org.exoplatform.forum.extras.injection.forum.PostInjector</type>
-  </component>
-
-  <component>
-    <type>org.exoplatform.forum.extras.injection.forum.MembershipInjector</type>
-  </component>
-  
-  <component>
-    <type>org.exoplatform.forum.extras.injection.forum.AttachmentInjector</type>
-  </component>
-  
    <!-- FAQ Injector Definition-->
   <component>
     <type>org.exoplatform.forum.extras.injection.faq.CategoryInjector</type>
@@ -90,17 +61,6 @@
     <type>org.exoplatform.forum.extras.injection.faq.MembershipInjector</type>
   </component>
 
-  <!-- POLL Injector Definition-->
-  <component>
-    <type>org.exoplatform.forum.extras.injection.poll.GroupInjector</type>
-  </component>
-  <component>
-    <type>org.exoplatform.forum.extras.injection.poll.PollInjector</type>
-  </component>
-  <component>
-    <type>org.exoplatform.forum.extras.injection.poll.VoteInjector</type>
-  </component>
-  
   <component>
     <key>org.exoplatform.forum.common.lifecycle.LifeCycleCompletionService</key>
     <type>org.exoplatform.forum.common.lifecycle.LifeCycleCompletionService</type>
@@ -125,25 +85,10 @@
     <key>org.exoplatform.faq.service.FAQService</key>
     <type>org.exoplatform.faq.service.impl.FAQServiceImpl</type>
   </component>
-  
-  <component>
-    <key>org.exoplatform.forum.service.ForumService</key>
-    <type>org.exoplatform.forum.service.impl.ForumServiceImpl</type>
-  </component>
-  
-  <component>
-    <key>org.exoplatform.forum.service.DataStorage</key>
-    <type>org.exoplatform.forum.service.impl.JCRDataStorage</type>
-  </component>  
 
   <component>
-    <key>org.exoplatform.poll.service.DataStorage</key>
-    <type>org.exoplatform.poll.service.impl.JCRDataStorage</type>
-  </component>  
-
-  <component>
-    <key>org.exoplatform.poll.service.PollService</key>
-    <type>org.exoplatform.poll.service.impl.PollServiceImpl</type>
+    <key>org.exoplatform.faq.service.DataStorage</key>
+    <type>org.exoplatform.faq.service.impl.JCRDataStorage</type>
   </component> 
 
   <component>
@@ -158,7 +103,7 @@
       </value-param>
     </init-params>
   </component>
-  
+
    <component>
     <key>org.exoplatform.forum.service.ForumStatisticsService</key>
     <type>org.exoplatform.forum.service.impl.ForumStatisticsServiceImpl</type>
@@ -175,36 +120,6 @@
     <type>org.exoplatform.services.jdbc.impl.DataSourceProviderImpl</type>
   </component>
 
-  <external-component-plugins>
-    <target-component>org.exoplatform.services.organization.OrganizationService</target-component>
-    <!--Forum user listener-->
-    <component-plugin>
-      <name>forum.user.event.listener</name>
-      <set-method>addListenerPlugin</set-method>
-      <type>org.exoplatform.forum.service.conf.ForumUserListener</type>
-      <description>creates a profile in forum for each new user and calculate info when deleted user.</description>
-      <init-params>
-        <properties-param>
-          <name>user.profile.setting</name>
-          <description>set default user profile</description>
-          <property name="timeZone" value="GMT" />
-          <property name="shortDateFormat" value="MM/dd/yyyy" />
-          <property name="longDateFormat" value="DDD,MMM dd,yyyy" />
-          <property name="timeFormat" value="hh:mm a" />
-          <property name="maxTopic" value="10" />
-          <property name="maxPost" value="10" />
-        </properties-param>
-      </init-params>
-    </component-plugin>
-    <!--Forum group listener-->
-    <component-plugin>
-      <name>forum.group.event.listener </name>
-      <set-method>addListenerPlugin </set-method>
-      <type>org.exoplatform.forum.service.conf.ForumGroupListener</type>
-      <description>Remove the forums in spaces and remove group storage in categories/forums/topics</description>
-    </component-plugin>
-  </external-component-plugins>
-  
   <external-component-plugins>
     <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
     <component-plugin>
