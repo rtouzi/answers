@@ -444,7 +444,8 @@ public class FAQActivityTestCase extends FAQServiceBaseTestCase {
   private FileAttachment createUserAvatar(String fileName) throws Exception {
     FileAttachment attachment = new FileAttachment();
     try {
-      File file = new File("../integ-answers/src/test/resources/conf/portal/defaultAvatar.jpg");
+      // TODO: Avoid hardcoding the path
+      File file = new File("../integration/src/test/resources/conf/portal/defaultAvatar.jpg");
       attachment.setName(fileName);
       InputStream is = new FileInputStream(file);
       attachment.setInputStream(is);
