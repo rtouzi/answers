@@ -42,6 +42,12 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.addons.answers</groupId>
+      <artifactId>answers-plf-integration</artifactId>
+      <version>${project.version}</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.addons.answers</groupId>
       <artifactId>answers-portlets</artifactId>
       <version>${project.version}</version>
       <type>war</type>

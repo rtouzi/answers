@@ -33,6 +33,7 @@
       <useProjectArtifact>false</useProjectArtifact>
       <includes>
         <include>${project.groupId}:answers-services:jar</include>
+        <include>${project.groupId}:answers-plf-integration:jar</include>
       </includes>
     </dependencySet>
 
