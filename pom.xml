@@ -47,6 +47,7 @@
     <module>data-injector</module>
     <module>integration</module>
     <module>webapp</module>
+    <module>extension</module>
     <module>packaging</module>
   </modules>
 

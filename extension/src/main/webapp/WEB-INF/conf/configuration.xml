@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
+	xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
+
+  <!-- main KS configuration  -->
+  <import>war:/ks-extension/ks/ks-configuration.xml</import>
+
+  <!-- KS data storage tree -->
+  <import>war:/ks-extension/ks/faq/storage-configuration.xml</import> 
+  
+  <import>war:/ks-extension/ks/faq/roles-configuration.xml</import>
+
+  <!-- Configure the profile contact provider -->
+  <import>war:/ks-extension/ks/profile-configuration.xml</import>
+  
+  <!-- Configure the FAQ templates -->
+  <import>war:/ks-extension/ks/faq/templates-configuration.xml</import>  
+  
+  <!-- Answers and FAQ core services -->
+  <import>war:/ks-extension/ks/faq/faq-configuration.xml</import>
+
+</configuration>

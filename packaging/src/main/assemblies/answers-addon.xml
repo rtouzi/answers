@@ -45,5 +45,12 @@
       </includes>
       <outputFileNameMapping>faq.war</outputFileNameMapping>
     </dependencySet>
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>${project.groupId}:answers-extension-config:war</include>
+      </includes>
+      <outputFileNameMapping>answers-extension.war</outputFileNameMapping>
+    </dependencySet>
   </dependencySets>
 </assembly>
