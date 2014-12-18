@@ -1,32 +1,22 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd http://www.exoplatform.org/xml/ns/kernel_1_2.xsd"
   xmlns="http://www.exoplatform.org/xml/ns/kernel_1_2.xsd">
 
-  <component>
-    <key>org.exoplatform.commons.api.search.SearchService</key>
-    <type>org.exoplatform.commons.search.driver.jcr.JcrSearchDriver</type>
-    <component-plugins>
-      <!-- Forum --> 
-      <component-plugin profiles="all">
-        <name>AnswerSearchConnector</name>
-        <set-method>addConnector</set-method>
-        <type>org.exoplatform.faq.service.search.AnswerSearchConnector</type>
-        <description>eXo Answers answers</description>
-        <init-params>
-          <properties-param>
-             <name>constructor.params</name>
-             <property name="searchType" value="answer"/>
-             <property name="displayName" value="Answers"/>
-          </properties-param>
-        </init-params>      
-      </component-plugin>
-    </component-plugins>
-    <init-params>
-      <value-param>
-        <name>exo.search.excluded-characters</name>
-        <value>${search.excluded-characters:.}</value>
-      </value-param>
-    </init-params>
-  </component>
+  <external-component-plugins>
+    <target-component>org.exoplatform.commons.api.search.SearchService</target-component>
+    <component-plugin profiles="all">
+      <name>AnswerSearchConnector</name>
+      <set-method>addConnector</set-method>
+      <type>org.exoplatform.faq.service.search.AnswerSearchConnector</type>
+      <description>eXo Answers answers</description>
+      <init-params>
+        <properties-param>
+          <name>constructor.params</name>
+          <property name="searchType" value="answer"/>
+          <property name="displayName" value="Answers"/>
+        </properties-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
 
   <external-component-plugins>
     <target-component>org.exoplatform.faq.service.FAQService</target-component>
