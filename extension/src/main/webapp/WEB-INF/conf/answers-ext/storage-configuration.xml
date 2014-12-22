@@ -7,16 +7,14 @@
   <external-component-plugins>
     <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>      
     <component-plugin> 
-      <name>add.ks.nodeType</name>
+      <name>add.answers.nodeType</name>
       <set-method>addPlugin</set-method>
       <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
       <init-params>
         <values-param>
           <name>autoCreatedInNewRepository</name>
           <description>Node types configuration file</description>
-          <value>jar:/conf/portal/forum-nodetypes.xml</value>
           <value>jar:/conf/portal/faq-nodetypes.xml</value>
-          <value>jar:/conf/portal/poll-nodetypes.xml</value>
         </values-param>
       </init-params>
     </component-plugin>

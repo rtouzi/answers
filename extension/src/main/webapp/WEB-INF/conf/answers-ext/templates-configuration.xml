@@ -12,7 +12,7 @@
     <init-params>
       <value-param>
         <name>viewerTemplate</name>
-        <value>war:/ks-extension/ks/faq/templates/FAQViewerPortlet.gtmpl</value>
+        <value>war:/conf/answers-ext/templates/FAQViewerPortlet.gtmpl</value>
       </value-param>
     </init-params>
   </component-plugin>
@@ -39,7 +39,7 @@
         <value-param>
           <name>location</name>
           <description>The location of file template</description>
-          <value>war:/ks-extension/ks/faq/templates/FAQViewerPortlet.gtmpl</value>
+          <value>war:/conf/answers-ext/templates/FAQViewerPortlet.gtmpl</value>
         </value-param>
       </init-params>
     </component-plugin>
