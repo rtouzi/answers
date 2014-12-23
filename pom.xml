@@ -59,7 +59,7 @@
     <!-- **************************************** -->
     <!-- Jenkins Settings -->
     <!-- **************************************** -->
-    <jenkins.job.name>forum-master-ci</jenkins.job.name>
+    <jenkins.job.name>addon-answers-master-ci</jenkins.job.name>
     <!-- **************************************** -->
     <!-- Dependencies versions -->
     <!-- **************************************** -->
@@ -101,30 +101,12 @@
         <scope>import</scope>
       </dependency>
       <!-- Declare our own artifacts -->
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <classifier>source-release</classifier>
-        <type>zip</type>
-      </dependency>
+
       <dependency>
         <groupId>org.exoplatform.addons.answers</groupId>
         <artifactId>answers-services</artifactId>
         <version>${project.version}</version>
         <type>jar</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-answer-webapp</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-answer-webapp</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>pom</type>
       </dependency>
       <dependency>
         <groupId>org.exoplatform.forum</groupId>
@@ -156,96 +138,19 @@
         <version>${org.exoplatform.forum.version}</version>
         <type>jar</type>
       </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-extension-config</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-extension-webapp</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-extension-webapp</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>pom</type>
-      </dependency>
+
       <dependency>
         <groupId>org.exoplatform.forum</groupId>
         <artifactId>forum-forum-service</artifactId>
         <version>${org.exoplatform.forum.version}</version>
         <type>jar</type>
       </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-forum-webapp</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-forum-webapp</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>pom</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-forumResources</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-forumResources</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>pom</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-gadgets</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-gadgets</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>pom</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-poll-service</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>jar</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-poll-webapp</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>war</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-poll-webapp</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>pom</type>
-      </dependency>
+
       <!-- Import versions from social project -->
       <dependency>
         <groupId>org.exoplatform.social</groupId>
         <artifactId>social</artifactId>
         <version>${org.exoplatform.social.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from wiki project -->
-      <dependency>
-        <groupId>org.exoplatform.wiki</groupId>
-        <artifactId>wiki</artifactId>
-        <version>${org.exoplatform.wiki.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -346,38 +251,7 @@
         <artifactId>wci-wci</artifactId>
         <version>${org.gatein.wci.version}</version>
       </dependency>
-      <!-- Import versions from jcr project -->
-      <dependency>
-        <groupId>org.exoplatform.jcr</groupId>
-        <artifactId>jcr-parent</artifactId>
-        <version>${org.exoplatform.jcr.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from ws project -->
-      <dependency>
-        <groupId>org.exoplatform.ws</groupId>
-        <artifactId>ws-parent</artifactId>
-        <version>${org.exoplatform.ws.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from core project -->
-      <dependency>
-        <groupId>org.exoplatform.core</groupId>
-        <artifactId>core-parent</artifactId>
-        <version>${org.exoplatform.core.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from kernel project -->
-      <dependency>
-        <groupId>org.exoplatform.kernel</groupId>
-        <artifactId>kernel-parent</artifactId>
-        <version>${org.exoplatform.kernel.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+
       <!-- Use to generate some documentation -->
       <dependency>
         <groupId>org.exoplatform.doc</groupId>
