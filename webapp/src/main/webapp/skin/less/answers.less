@@ -1,7 +1,7 @@
-@import "variables.less";
-@import "mixins.less";
-@import "answers/Sprites/Style.less";
-@import "answers/Popup/Style.less";
+@import "_variables.less";
+@import "_mixins.less";
+@import "Sprites/Style.less";
+@import "Popup/Style.less";
 
 //drag drog
 .faqDnDCategory {
@@ -35,12 +35,12 @@
 		}
 	}
 	.resize {
-		margin-top: 8px;
 		a {
-			#gradient > .vertical(@white,@componentBackground);
+			#gradient > .vertical(@baseBackground, @primaryBackground);
 			border: 1px solid @borderColor;
 			border-right: 0;
 			padding: 4px 0;
+            margin-top: 7px;
 			display: block;
 			float: left;
 			margin-left: 2px;
@@ -81,7 +81,7 @@
 			margin: 0 0 10px 0;
 		}
 		.time {
-			color: @grayLight;
+			color: @baseColorLight;
 		}
 	}
 	.uiAnserContainer .resize {
@@ -89,14 +89,18 @@
 	}
 	.uiAnserContainer .rightColumn {
 		margin-left: 255px;
-		.uiGrayLightBox ,.metaContent{
+		.metaContent{
 				overflow: hidden;
 			}
+      .uiGrayLightBox .clearfix {
+        display: inline-block;
+        width: 100%;
+      }
 	}
 
 	blockquote {
 		background: none;
-		border-left: 5px solid @grayLight;
+		border-left: 5px solid @quotePrimaryBorder;
 	    margin: 0 0 20px;
 	    padding: 0 0 0 15px;
 	    width: auto;
@@ -128,15 +132,18 @@
 			> ul > li{
 				float: left;
 				margin: 0 10px 0 0;
-				a {
-					color: @textColor;
+              a {
+                color: @textColor;
+              }
+			 li	a {
+					color: @dropdownLinkColor;
 				}
 			}
 			> .menuRight > li {
 				margin: 0 0 0 10px;
 			}
 			.dropdown-menu li a:hover {
-				color: @white;
+				color: @dropdownLinkColorHover;
 			}
 		}
 
@@ -146,15 +153,18 @@
 		.border-radius(@borderRadiusSmall);
 		& >.responseItemContainer {
 			.border-radius(@borderRadiusSmall @borderRadiusSmall  0 0);
-			background: @componentBackground;
+			background: @primaryBackground;
 			min-height: 110px;
 			.languageContainer  {
 				margin: 0 20px 0 0;
 			}
 		}
+		.attachmentContainer {
+			margin-top: 0;
+		}
 		.attachmentContainer ,.notResponse{
 			border-top: 1px solid @borderColor;
-			color: @grayLight;
+			color: @baseColorLight;
 		}
 		& + .questionContainer  {
 			margin-top: 20px;
@@ -215,7 +225,7 @@
 				//margin: 2px 0;
 			}
 			.date{
-				color: @grayLight;
+				color: @baseColorLight;
 				font-size: 12px;
 			}
 			.avatarXSmall {
@@ -238,7 +248,7 @@
 				}
 				img {
 					.square(70px);
-					 border: 1px solid @white;
+					 border: 1px solid @baseBackground;
 				}
 				& + .questionRight {
 					margin-left: 90px;
@@ -279,7 +289,7 @@
 .boxNum {
 	border: 1px solid @borderColor;
 	text-align:center;
-	background: @white;
+	background: @baseBackground;
     float: left;
     min-width: 64px;
     padding: 2px;
@@ -294,72 +304,10 @@
 		.border-radius(0  @borderRadiusSmall @borderRadiusSmall  0 );
 	}
 	&.boxNumGray {
-		background: @componentBackground;
+		background: @primaryBackground;
 	}
 	& + .boxNum {
-		border-left: 1px solid @componentBackgroundHover;
-	}
-}
-//attachmentContainer
-
-.attachmentContainer{
-		background: @componentBackgroundLight;
-		padding: 18px;
-
-		.otherAttachmentBox + .otherAttachmentBox{
-			margin-top: 5px;
-		}
-
-		.attachmentTitle{
-			margin-bottom: 15px;
-		}
-		.attachmentContentImage {
-			margin-bottom: 10px;
-
-		.imageAttachmentBox{
-			display: inline-block;
-			.square(128px);
-			text-align: center;
-			margin-right: 15px;
-			margin-bottom: 15px;
-			position: relative;
-			&:hover{
-				.actionAttachImg{
-					display: block;
-				}
-			}
-
-			.imgAttach{
-				line-height: 125px;
-				max-height: 128px;
-				max-width: 128px;
-				img {
-					max-height: 128px;
-					max-width: 128px;
-				}
-			}
-			.actionAttachImg{
-				position: absolute;
-				display: none;
-				top: 0;
-				left: 0;
-				background-color: rgba(0,0,0,0.1);
-				.square(128px);
-				p{
-					a{
-						color: @white;
-						&:hover {
-							font-weight: bold;
-						}
-					}
-
-					margin: 45px 0 0 0;
-					&+p{
-						margin-top: 0;
-					}
-				}
-			}
-		}
+		border-left: 1px solid @primaryBackgroundHover;
 	}
 }
 
@@ -375,7 +323,7 @@
 	.contentQuote{
 		font-style: italic;
 		padding: 15px 15px 15px 20px;
-		background: @quoteSecondBackground;
+		background: @quotePrimaryBackground;
 		margin: 10px 0 0 15px;
 		word-wrap: break-word;
 		.border-radius(2px);
@@ -384,12 +332,13 @@
 			padding-left: 0;
 			margin-top: 10px;
 			.contentQuote{
-				border-left: solid 5px @quoteSecondBorder;
+				border-left: solid 5px @quotePrimaryBorder;
 				padding: 0px 0px 0px 20px;
 				margin-top: 15px;
 				.titleQuote{
 					line-height: 8px;
 					height: 13px;
+                  color: @quotecolor;
 				}
 			}
 			.singleQuote {
@@ -398,7 +347,7 @@
 			}
 		}
 		.titleQuote{
-			font-weight:bold;
+			font-weight:bold;color: @quotecolor;
 		}
 	}
 
@@ -409,7 +358,7 @@
 			padding-left: 0;
 			margin: 0;
 			.titleQuote{
-				font-weight:bold;
+				font-weight:bold;color: @quotecolor;
 			}
 		}
 	}
@@ -419,9 +368,12 @@
 .questionContainer {
 	.theContent {
 		.contentQuote {
-			background: @componentBackgroundLight;
+			background: @primaryBackgroundLight;
 		}
 	}
 }
 
 
+#UIBreadcumbs.uiGrayLightBox {
+  padding: 10px 10px 4px;
+}

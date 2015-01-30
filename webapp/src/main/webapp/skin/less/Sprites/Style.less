@@ -11,11 +11,11 @@
 // and background-position. Your resulting HTML will look like
 // <i class="iconinbox"></i>.
 
-// For the white version of the icons, just add the .iconwhite class: 
+// For the @baseBackground version of the icons, just add the .iconwhite class:
 // <i class="iconinbox iconwhite"></i>
 
-[class^="uiIconAns"]{
-  background-image: url("/faq/skin/images/answers/Icons/uiIconsAnsDarkGray.png");
+[class^="uiIconAns"],.LeftNavigationTDContainer .uiPopup [class^="uiIconAns"]{
+  background-image: url("@{images-path}/uiIconsAnsDefault.png");
 }
 
 /* Blue icons with optional class, or on hover/active states of certain elements */
@@ -31,7 +31,7 @@
 .btn:hover [class^="uiIconAns"],a:hover  > [class^="uiIconAns"],
 [class^="uiIconAns"]:hover, .uiActionBar [class^="uiIconAns"]:hover, .uiIconAnsBlue
 {
-  background-image: url("/faq/skin/images/answers/Icons/uiIconsAnsBlue.png");
+  background-image: url("@{images-path}/uiIconsAnsPrimary.png");
 }
 
 /* light grey icons with optional class, or on  */
@@ -43,8 +43,12 @@
 .uiDropDownCal li a [class^="uiIconAns"], .uiActionBar [class^="uiIconAns"],
 .answerToolbar [class^="uiIconAns"], .uiIconAnsLightGray
 {
-  background-image: url("/faq/skin/images/answers/Icons/uiIconsAnsLightGray.png");
-}
+  background-image: url("@{images-path}/uiIconsAnsDefault.png");
+}
+
+.uiIconAnsExtra ,.LeftNavigationTDContainer [class^="uiIconAns"]{
+  background-image: url("@{images-path}/uiIconsAnsExtra.png");
+}
 
 /* White icons with optional class, or on hover/active states of Drop down with Icons */
 
@@ -55,19 +59,18 @@
 .uiDropdownWithIcon .dropdown-menu > .active > a > [class^="uiIconAns"],
 .uiDropdownWithIcon .dropdown-submenu:hover > a > [class^="uiIconAns"],
 .btn-primary [class^="uiIconAns"], 
-.btn-primary:hover [class^="uiIconAns"],
-.btn-primary:hover [class^="uiIconAns"]:hover, .uiIconAnsWhite
+.btn-primary:hover [class^="uiIconAns"], .uiIconAnsWhite
 {
-  background-image: url("/faq/skin/images/answers/Icons/uiIconsAnsWhite.png");
+  background-image: url("@{images-path}/uiIconsAnsSecondary.png");
 }
 
 [class^="uiIconAnwserColor"] {
-	background-image: url("/faq/skin/images/answers/Icons/uiIconsAnswerColor.png");
+	background-image: url("@{images-path}/uiIconsAnswerColor.png");
 }
 
 .dropdown > a:hover > [class^="uiIconAnwserColor"], [class^="uiIconAnwserColor"]:hover,
 a:hover > [class^="uiIconAnwserColor"], i:hover [class^="uiIconAnwserColor"]{
-	background-image: url("/faq/skin/images/answers/Icons/uiIconsAnswerColor.png");
+	background-image: url("@{images-path}/uiIconsAnswerColor.png");
 }
 
 .uiIconAnsSubmitQuestion,.uiIconAnsAddNewQuestion {
