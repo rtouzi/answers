@@ -124,8 +124,8 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.platform-ui</groupId>
-      <artifactId>platform-ui-webui-core</artifactId>
+      <groupId>org.gatein.portal</groupId>
+      <artifactId>exo.portal.webui.core</artifactId>
     </dependency> 
     <dependency>
       <groupId>org.exoplatform.social</groupId>
@@ -253,7 +253,7 @@
     </dependency>
     <dependency>
       <groupId>org.exoplatform.platform-ui</groupId>
-      <artifactId>platform-ui-web-eXoResources</artifactId>
+      <artifactId>platform-ui-skin</artifactId>
       <type>war</type>
       <scope>provided</scope>
     </dependency>
@@ -307,7 +307,7 @@
               <artifactItems>
                 <artifactItem>
                   <groupId>org.exoplatform.platform-ui</groupId>
-                  <artifactId>platform-ui-web-eXoResources</artifactId>
+                  <artifactId>platform-ui-skin</artifactId>
                   <type>war</type>
                   <overWrite>false</overWrite>
                   <outputDirectory>${project.build.directory}/${project.build.finalName}</outputDirectory>
