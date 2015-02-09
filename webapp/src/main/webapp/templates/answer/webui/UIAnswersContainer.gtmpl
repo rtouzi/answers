@@ -1,5 +1,5 @@
 <div id="${uicomponent.id}" class="UIAnswersContainer uiAnserContainer clearfix">
-<% 
+<%
   uicomponent.setViewRootCate();
   def rcontext = _ctx.getRequestContext();
   def requireJS = rcontext.getJavascriptManager().getRequireJS();
@@ -8,9 +8,9 @@
 
   <% if(uicomponent.isRenderChild) { %>
   <%List children = uicomponent.getChildren() ;%>
-  
+
       <div id="FAQViewCategoriesColumn" class="faqViewCategoriesColumn leftColumn pull-left"><%uicomponent.renderChild(children.get(2).getClass());%></div>
-      <div id="resizeLineBar" class="resize pull-left clearfix">
+      <div id="resizeLineBar" class="resize pull-left clearfix resize-bar">
         <a href="javascript:void(0)" class="iconControll"><i class="uiIconMiniArrowLeft pull-left "></i></a>
         <div class="line pull-left"></div>
       </div>

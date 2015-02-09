@@ -21,7 +21,7 @@
 
       var jDragObject = $(DragDrop.dragObject);
 
-      jDragObject.css('width', $(this).width()).attr('class', 'faqDnDCategory');
+      jDragObject.css('width', $(this).width()).attr('class', 'faqDnDCategory uiBox');
       var ul = $('<ul class="faqDn"></ul>');
       ul.append(jDragObject);
 
@@ -55,7 +55,6 @@
       if (jTarget.hasClass('faqTmpCategory')) {
         jTarget.addClass('faqHighlightCategory');
       }
-      jTarget.css('border', 'dotted 1px #cfcfcf');
       if (DragDrop.hided === false) {
         DragDrop.hideElement(DragDrop.rootNode);
       }
@@ -79,10 +78,6 @@
 
     setup : function(targetClass) {
       DragDrop.targetClass = targetClass;
-      $(DragDrop.dragObject).css({
-        'border' : 'solid 1px #cfcfcf',
-        'background' : '#fff'
-      });
       if($.browser.msie) {
         $(document).on('dragstart', function(e){
           return false;

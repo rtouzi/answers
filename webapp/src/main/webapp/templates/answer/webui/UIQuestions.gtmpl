@@ -130,9 +130,9 @@
 				<div class="questionContainer" id="$questionId">
 
 					<!-- style for Questions -->
-					<div class="normalQuest">
+					<div class="normalQuest clearfix">
 						<div class="span2 leftContent">
-							<div class="boxNum boxNumGray">
+							<div class="boxNum boxNumGray uiGrayLightBox">
 								<%
 									int numberAnswer = question.getNumberOfPublicAnswers();
 									String numberAnswerLabel = (numberAnswer > 1) ? _ctx.appRes("UIQuestions.label.answers") : _ctx.appRes("UIAdvancedSearchForm.label.Response");
@@ -141,7 +141,7 @@
 								<span><%=numberAnswerLabel%></span>
 							</div>
 
-							<div class="boxNum">
+							<div class="boxNum uiBox">
 								<h5><%= uicomponent.getVoteScore(question); %></h5>
 								<span><%= _ctx.appRes("UIQuestions.label.score"); %></span>
 							</div>
@@ -254,7 +254,7 @@
 									</a>
 								</div>
 								<%} %>
-								<div class="time"><%= uicomponent.calculateTimeMessageOfLastActivity(question.getTimeOfLastActivity());%></div>
+								<div class="date time "><%= uicomponent.calculateTimeMessageOfLastActivity(question.getTimeOfLastActivity());%></div>
 						<%} %>
 							</div>
 						</div><!-- end	rightContent-->
@@ -269,8 +269,8 @@
 						String responseBy = "..." ;
 						String date = "..." ;
 				%>
-						<div class="questionSelect">
-							<div class="questionContainer responseItemContainer" id="$questionId">
+						<div class="questionSelect uiBox">
+							<div class="questionContainer responseItemContainer title" id="$questionId">
 
 								<div class="itemContainerFirst">
 								<%
@@ -553,8 +553,8 @@
 													<%
 														String questionDetail = uicomponent.render(uicomponent.getQuestionDetail());
 													%>
-												<div class="theContent">$questionDetail</div>
-												<p class="date"><%=FAQUtils.getLongDateFormat(question.getCreatedDate())%></p>
+												<div class="theContent postContent">$questionDetail</div>
+												<p class="time date"><%=FAQUtils.getLongDateFormat(question.getCreatedDate())%></p>
 												<!--	view bottom	-->
 												<% if(uicomponent.currentUser_ != null) { %>
 													<div class="questionAction">
@@ -667,13 +667,14 @@
 									<%}
 									}%>
 								</div>
+								
 							</div><!-- end relationContent -->
 							<%}
 							}%>
 							<!--	Question's answers	-->
 							<div class="responseContainer">
 								<!-- View all answer for this question -->
-								<div class="response $classResponsse" id="SetWidthContent">
+								<div class="response uiContentBox $classResponsse" id="SetWidthContent">
 							<%
 								 if(answers != null && answers.length > 0) {
 									String actionAnswer = "";
@@ -773,7 +774,7 @@
 															<%= FAQUtils.getFullName(owner);%>
 														</span>
 													</a>
-													<div class="theContent">$res</div>
+													<div class="theContent postContent">$res</div>
 												</div>
 										<% } else { %>
 												<div class="answerContent">
@@ -782,12 +783,12 @@
 															 <%= FAQUtils.getFullName(owner);%>
 														 </span>
 													 </a>
-													 <div class="theContent">$res</div>
+													 <div class="theContent postContent">$res</div>
 												</div>
 										<% } %>
 
 									 			<div class="voteAnswerContainer">
-													<span class="date">$date</span>&nbsp;
+													<span class="date time">$date</span>&nbsp;
 											<%
 													if(uicomponent.faqSetting_.isEnanbleVotesAndComments()) {
 														String userVoteUpAnswer = "javaScript:alert('" + _ctx.appRes("UIQuestions.alert.LoginBeforVote") + "')";
@@ -820,6 +821,7 @@
 												</div><!-- end voteAnswerContainer -->
 											</div> <!-- end responseItemContainerRight -->
 								 		</div><!-- end responseItem -->
+										<hr/>
 									</div><!-- end responseItemContainer -->
 								<% } %><!-- end for answers -->
 
@@ -829,7 +831,7 @@
 
 							<!-- end if length of answers[] > 0	-->
 							<% }	else { %>
-									<div class=" notResponse">
+									<div class="empty notResponse">
 										<%=_ctx.appRes("UIQuestions.label.QuestionNotYetAnswered")%>
 									</div>
 							<% } %>
@@ -840,16 +842,16 @@
 							<%
 						if(uicomponent.faqSetting_.isEnanbleVotesAndComments()) {
 							Comment[] comments = uicomponent.getPageListComment(question.getPath());
-							String classComment = "";
-							if(comments.length > 0) {
-								classComment = "commentExternal";
+							String displayStyle = (comments.length > 0) ? "" : "style=\"display:none\"";
 						%>
-								<div class="response responseComment $classComment">
-									<h5 class="titleResponseContent">
-										<%=_ctx.appRes("UIQuestions.label.Comments")%>
-									</h5>
-								</div>
-							<%} %>
+							<div class="uiContentBox responseComment" $displayStyle>
+						<%
+							if(comments.length > 0) {
+						%>
+								<h5 class="titleResponseContent">
+									<%=_ctx.appRes("UIQuestions.label.Comments")%>
+								</h5>
+						 <% } %>
 							<%
 								boolean isOwner = false;
 								int commentCount = 0;
@@ -912,17 +914,19 @@
 												<a class="authorInfor" rel="tooltip" data-placement="bottom" title="<%=_ctx.appRes("UIQuestionsInfo.title.ViewUserProfile")%>" href="javascript:void(0);" onclick="<%=uicomponent.event("ViewUserProfile", owner)%>">
 													<span class="userName"><%= FAQUtils.getFullName(owner);%></span>
 												</a>
-												<div class="theContent">$commentDetail</div>
-												<div class="date"><%=FAQUtils.getLongDateFormat(comment.getDateComment());%></div>
+												<div class="theContent postContent">$commentDetail</div>
+												<div class="time date"><%=FAQUtils.getLongDateFormat(comment.getDateComment());%></div>
 											</div>
 										</div>
 									</div><!-- end responseItem comments -->
+									<hr/>
 								</div><!-- end responseItemContainer of comments -->
 							<%} %> <!-- end for comments -->
 
 							<%if(uicomponent.getChildById(uicomponent.COMMENT_ITER + question.getId())!= null) { %>
 								<% uicomponent.renderChild(uicomponent.COMMENT_ITER + question.getId()) %>
 							<%} %>
+							</div> <!--END responseComment-->
 						<% } %>
 
 							</div><!-- end responseContainer -->

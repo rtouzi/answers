@@ -35,7 +35,7 @@
 	<div class="viewUserProfile resizable">			
 		<div class="viewContainer row">
 						<div class="span3">
-							<div class="userContent ">
+							<div class="userContent uiGrayLightBox ">
 								<div class="titleBar">
 									<i class="uiIconAnwserColorOnline pull-left"></i><div class="userName">$fullName</div>
 								</div>

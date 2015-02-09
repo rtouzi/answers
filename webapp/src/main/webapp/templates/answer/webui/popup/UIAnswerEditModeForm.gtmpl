@@ -31,7 +31,7 @@
 				</div>
 			</div>
 		 <!--actionButtonGroup-->
-			<div class="uiTabContentContainers">
+			<div class="uiTabContentContainers uiBox">
 				<%
 					for(formInput in uicomponent.getChildren()) {
 
@@ -62,7 +62,7 @@
 										
 									<!-- /Child-actionButtonGroup -->
 									<!-- Child-uiTabContentContainer -->
-								<div class="uiTabContentContainer" >
+								<div class="uiTabContentContainer uiBox" >
 								<%
 									int i = 0;
 									for(uiFormInput in formInput.getChildren()) {

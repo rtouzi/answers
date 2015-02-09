@@ -6,7 +6,7 @@
 	<div class="uiTabPane">				
 		<div class="workingArea">
 			<div class="actionButtonGroup center">			 		
-				<div class="btn-group ">
+				<div class="btn-group btn-without-icon">
 					<%String classCss = "active" ; 
 					int i_ = 0;
 					for(tabconten in uiform.getChildren()){ 
@@ -24,7 +24,7 @@
 					} %>
 				</div>
 			</div><!--actionButtonGroup-->
-			<div class="uiTabContentContainers">
+			<div class="uiTabContentContainers uiBox">
 			<% 
 				String display =	"block";
 				int j_ = 0;

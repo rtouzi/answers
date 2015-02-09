@@ -54,7 +54,6 @@
 
 .uiViewUserProfile {
 	.titleBar {
-		color: @linkColor;
 		 font-weight: bold;
 	    margin: 0 0 10px;
 	    .userName {
@@ -64,8 +63,7 @@
 	}
 	.userContent {
 		padding: 10px 15px;
-		.border-radius(@borderRadiusSmall);
-		background: @primaryBackground;
+        border: none;
 		min-height: 250px;
 	}
 	.profileContainer {
@@ -138,7 +136,7 @@
 #UIPrintAllQuestions {
 	padding: 50px;
 	.uiAction {
-		padding-top: 20px;
+		padding-top: 0px;
 	}
 }
 .printBox + .printBox {
@@ -150,9 +148,6 @@
 .uiUserWatchManager {
 	.emailAddress {
 		padding: 0 0 0 18px;
-	}
-	a {
-		color: @textColor;
 	}
 }
 
@@ -221,7 +216,7 @@
 			margin-bottom: 20px;
 	}
 	.uiTabContentContainers {
-		border: 1px solid @borderColor;
+		border-radius: 0;
 
 		.uiTabContent {
 				padding: 20px;
@@ -238,7 +233,7 @@
 			}
 		}
 		.uiTabContentContainer {
-			border: 1px solid @borderColor;
+          border-radius: 0;
 		}
 	}
 
@@ -249,4 +244,8 @@
 	.uploadButton {
 		text-align: center;
 	}
+}
+
+.faqViewTabContent + #FAQViewFormContent {
+  margin-top: 15px;
 }

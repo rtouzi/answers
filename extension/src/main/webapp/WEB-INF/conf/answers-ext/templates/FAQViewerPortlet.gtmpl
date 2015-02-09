@@ -134,7 +134,7 @@
     
     <!-- Answers -->
 		<div class="answersBlock">
-			<h4><%=_ctx.appRes("UIViewer.label.Answers")%></h4>
+			<h4 class="uiGrayLightBox"><%=_ctx.appRes("UIViewer.label.Answers")%></h4>
       
       <!-- Questions in current category -->
 			<div class="viewerAnswer">
@@ -188,7 +188,7 @@
         String id = categoryInfo.getId();
       %>
       <div class="answerList">
-        <h5><span <%=tooltip%>>$categoryName</span></h5>
+        <h5 class="uiGrayLightBox"><span <%=tooltip%>>$categoryName</span></h5>
         <%for(questionInfo in questionInfos) {
           String question = questionInfo.getQuestion();
           question = uicomponent.render(question);
@@ -228,6 +228,7 @@
 								</div>
 							</div>
              </div>
+             <hr/>
             <%} %>                  
           </div>
         <% } %>
@@ -239,6 +240,6 @@
     <%} %>
 	</div>
 </div>
-<a rel="tooltip" onclick="" class="backtotop goUp pull-right" href="javascript:void(0);">
+<a rel="tooltip" onclick="" class="backtotop btn goUp pull-right" href="javascript:void(0);">
  <i class="uiIconGoUp uiIconLightGray"></i>
 </a>

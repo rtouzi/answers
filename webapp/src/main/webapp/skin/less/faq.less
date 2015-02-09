@@ -3,19 +3,13 @@
 .uiFAQPortlet {
 	padding: 20px;
 	.goUp {
-		background-color: @primaryBackgroundLight;
-	    background-image: linear-gradient(to bottom, @baseBackground, @primaryBackground);
-	    background-repeat: repeat-x;
-	    border: 1px solid @borderColor;
-	    border-radius: 3px 3px 3px 3px;
-	    box-shadow: 0 1px 2px 0 @baseBackground;
 	    float: right;
 	    position: fixed;
 	    bottom: 45px;
 	    right: 45px;
 	    padding: 2px 4px;
 	    &:hover [class^="uiIcon"] {
-	    	background-image: url("@{images-path}/uiIconsPrimary.png");
+	    	background-image: url("@{images-path-answer}/uiIconsPrimary.png");
 	    }
 	}
 }
@@ -24,10 +18,6 @@
 	padding: 10px 20px;
 	.answersBlock {
 		margin-top: 15px;
-		.date{
-				color: @baseColorLight;
-				font-size: 12px;
-			}
 	}
 	.answersBlock .uiIconMiniArrowDown  {
 		padding-left: 7px;
@@ -36,10 +26,7 @@
 
 .questionBlock, .answersBlock {
 	h4:first-child {
-		background-color: @primaryBackground;
-		border-radius: 2px;
-		line-height: 35px;
-		padding-left: 10px;
+		border: none;
 	}
 
 }
@@ -63,36 +50,36 @@
 	h5 span{
 		font-weight: normal;
 	}
-	h5:first-child a:first-child, h5:first-child a:first-child:hover {
-		color: @textColor;
-	}
 	h5 .childItem {
-		color: @linkColor;
-		font-size: @baseFontSize;
+		font-size: 13px;
 		font-weight: normal;
 	}
 }
 
 .answerList {
 	padding: 0 15px 0px;
-
+    .uiGrayLightBox {
+      .box-shadow(none);
+    }
 	> h5:first-child {
-		background-color: @primaryBackground;
-		border-radius: 2px;
-		line-height: 30px;
-		padding-left: 10px;
+		border: none;
 		margin-top: 0;
 	}
 
 	> div {
 		margin: 20px 10px;
+       hr{
+        margin: 5px 0 15px 22px;
+         &:last-child {
+           display: none;
+         }
+       }
 	}
 }
 
 .viewerAnswer, .answerList {
 	.description {
 		word-wrap: break-word;
-		color: @baseColorMedium;
 		padding-left: 22px;
 		font-style: italic;
 	}
@@ -101,10 +88,7 @@
 		word-wrap: break-word;
 		margin-left: 22px;
 		padding-bottom: 15px;
-		& + .answers {
-			padding: 15px 0 10px 0;
-			border-top: 1px solid @borderColor;
-		}
+
 		.footerData {
 			.avatarMini img {
 				max-width: 16px;
@@ -112,25 +96,22 @@
 				.border-radius(@borderRadiusSmall);
 				vertical-align: -4px;
 			}
-			.userName {
-				color: @linkColor;
-			}
 		}
 	}
 }
 
 .uiFAQSettingForm {
 	.actionButtonGroup {
-			margin-bottom: 20px;
-			.btn.active, .btn:active {
-				color: @linkColor;
-			}
+			margin-bottom: 15px;
 	}
 	.uiTabContentContainers {
-		border: 1px solid @borderColor;
+		border-radius: 0;
 		.uiTabContent {
 				padding: 20px;
 		}
+      .TitleMoveThreads {
+        margin: 0 0 10px;
+      }
 	}
 	.largerArea textarea{
 		.size(650px,100%);
@@ -146,4 +127,8 @@
 		}
 	 }
 
+}
+.faqCont blockquote {
+  display: inline-block;
+  width: auto;
 }
