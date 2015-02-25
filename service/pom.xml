@@ -39,12 +39,6 @@
       <artifactId>forum-component-common</artifactId>
     </dependency>
 
-    <!-- doc-style is required by wikbook to compile but we don't want to propagate it -->
-    <dependency>
-      <groupId>org.exoplatform.doc</groupId>
-      <artifactId>doc-style</artifactId>
-      <optional>true</optional>
-    </dependency>
     <dependency>
       <groupId>org.exoplatform.jcr</groupId>
       <artifactId>exo.jcr.component.core</artifactId>

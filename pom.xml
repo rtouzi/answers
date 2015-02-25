@@ -55,32 +55,15 @@
     <!-- **************************************** -->
     <!-- Jira Settings -->
     <!-- **************************************** -->
-    <jira.project.key>FORUM</jira.project.key>
+    <jira.project.key>ANS</jira.project.key>
     <!-- **************************************** -->
     <!-- Jenkins Settings -->
     <!-- **************************************** -->
     <jenkins.job.name>addon-answers-master-ci</jenkins.job.name>
     <!-- **************************************** -->
     <!-- Dependencies versions -->
-    <!-- **************************************** -->
-    <org.exoplatform.depmgt.version>10-SNAPSHOT</org.exoplatform.depmgt.version>
-    <!-- JCR Project Dependencies -->
-    <org.exoplatform.kernel.version>2.4.x-SNAPSHOT</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>2.5.x-SNAPSHOT</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>2.3.x-SNAPSHOT</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.15.x-SNAPSHOT</org.exoplatform.jcr.version>
-    
-    <!-- GateIn Project Dependencies -->
-    <org.gatein.common.version>2.1.0.Final</org.gatein.common.version>
-    <org.gatein.wci.version>2.3.0.Final</org.gatein.wci.version>
-    <org.gatein.portal.version>3.5.x-PLF-SNAPSHOT</org.gatein.portal.version>
-    <!-- Platform Project Dependencies -->
-    <org.exoplatform.commons.version>4.2.x-SNAPSHOT</org.exoplatform.commons.version>
-    <org.exoplatform.social.version>4.2.x-SNAPSHOT</org.exoplatform.social.version>
-    <org.exoplatform.wiki.version>4.2.x-SNAPSHOT</org.exoplatform.wiki.version>
-    <org.exoplatform.forum.version>4.2.x-SNAPSHOT</org.exoplatform.forum.version>
-    <!-- Platform Project 3rd party Dependencies -->
-    <org.exoplatform.doc.doc-style.version>4.2.x-SNAPSHOT</org.exoplatform.doc.doc-style.version>
+    <!-- **************************************** -->   
+    <exoplatform.version>4.2.x-SNAPSHOT</exoplatform.version>
     <!-- For surefire and failsafe to be compatible with jacoco -->
     <argLine>-Xmx1024m -XX:MaxPermSize=512m</argLine>
   </properties>
@@ -88,20 +71,20 @@
   <dependencyManagement>
     <!-- ### NEVER CHANGE THIS ORDER OF DEPMGT ### -->
     <!-- * From top level to bottom projects -->
-    <!-- * maven-depmgt-pom must be the first -->
+    <!-- * platform-pom must be the first -->
     <!-- * Your own modules -->
     <!-- * And projects below you -->
     <dependencies>
-      <!-- Import versions of external dependencies to use -->
+      <!-- Import versions from platform project -->
       <dependency>
-        <groupId>org.exoplatform</groupId>
-        <artifactId>maven-depmgt-pom</artifactId>
-        <version>${org.exoplatform.depmgt.version}</version>
+        <groupId>org.exoplatform.platform</groupId>
+        <artifactId>platform</artifactId>
+        <version>${exoplatform.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!-- Declare our own artifacts -->
 
+      <!-- Declare our own artifacts -->
       <dependency>
         <groupId>org.exoplatform.addons.answers</groupId>
         <artifactId>answers-services</artifactId>
@@ -109,154 +92,28 @@
         <type>jar</type>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-application-common</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
+        <groupId>org.exoplatform.addons.answers</groupId>
+        <artifactId>answers-data-injector</artifactId>
+        <version>${project.version}</version>
         <type>jar</type>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-application-create</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
+        <groupId>org.exoplatform.addons.answers</groupId>
+        <artifactId>answers-plf-integration</artifactId>
+        <version>${project.version}</version>
         <type>jar</type>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-component-bbcode</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>jar</type>
+        <groupId>org.exoplatform.addons.answers</groupId>
+        <artifactId>answers-portlets</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
       </dependency>
       <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-component-common</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>jar</type>
-      </dependency>
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-component-rendering</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>jar</type>
-      </dependency>
-
-      <dependency>
-        <groupId>org.exoplatform.forum</groupId>
-        <artifactId>forum-forum-service</artifactId>
-        <version>${org.exoplatform.forum.version}</version>
-        <type>jar</type>
-      </dependency>
-
-      <!-- Import versions from social project -->
-      <dependency>
-        <groupId>org.exoplatform.social</groupId>
-        <artifactId>social</artifactId>
-        <version>${org.exoplatform.social.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- Import versions from commons project -->
-      <dependency>
-        <groupId>org.exoplatform.commons</groupId>
-        <artifactId>commons</artifactId>
-        <version>${org.exoplatform.commons.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <!-- To be replaced by an import of GateIn Common parent POM -->
-      <dependency>
-        <groupId>org.gatein.common</groupId>
-        <artifactId>common-logging</artifactId>
-        <version>${org.gatein.common.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.component.application-registry</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.component.common</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <!-- To be replaced by an import of GateIn Portal parent POM -->
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.component.identity</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <type>test-jar</type>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.component.portal</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.component.portal</artifactId>
-        <version>${org.gatein.portal.version}</version>
-        <type>test-jar</type>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.component.resources</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.component.test.core</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.component.test.jcr</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.component.web.controller</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.component.web.resources</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.component.web.server</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.webui.eXo</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.webui.framework</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.webui.portal</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.portal</groupId>
-        <artifactId>exo.portal.webui.portlet</artifactId>
-        <version>${org.gatein.portal.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.gatein.wci</groupId>
-        <artifactId>wci-wci</artifactId>
-        <version>${org.gatein.wci.version}</version>
-      </dependency>
-
-      <!-- Use to generate some documentation -->
-      <dependency>
-        <groupId>org.exoplatform.doc</groupId>
-        <artifactId>doc-style</artifactId>
-        <version>${org.exoplatform.doc.doc-style.version}</version>
+        <groupId>org.exoplatform.addons.answers</groupId>
+        <artifactId>answers-extension-config</artifactId>
+        <version>${project.version}</version>
+        <type>war</type>
       </dependency>
     </dependencies>
   </dependencyManagement>

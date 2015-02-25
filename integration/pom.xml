@@ -26,6 +26,7 @@
     <dependency>
       <groupId>org.exoplatform.forum</groupId>
       <artifactId>forum-component-bbcode</artifactId>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.exoplatform.forum</groupId>
